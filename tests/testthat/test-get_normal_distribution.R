@@ -25,7 +25,7 @@ describe("Test if the data came from normal distribution", {
     expect_true(did_come_from_a_normal_distribution(data))
   })
   it("Second example", {
-    data <- runif(50, 1,150)
+    data <- runif(50, 1, 150)
     expect_false(did_come_from_a_normal_distribution(data))
   })
 })
