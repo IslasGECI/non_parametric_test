@@ -28,4 +28,8 @@ describe("Test if the data came from normal distribution", {
     data <- runif(50, 1, 150)
     expect_false(did_come_from_a_normal_distribution(data))
   })
+  it("First example", {
+    data <- rnorm(10, 7, 1)
+    expect_true(did_come_from_a_normal_distribution(data))
+  })
 })
