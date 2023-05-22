@@ -1,5 +1,5 @@
-Package: templater
-Title: Template for R projects
+Package: KSTest
+Title: Tools to work with Kolmogorov-Smirnov Test
 Authors@R: c(
     person(given = "Ciencia de Datos",
            family = "GECI",
