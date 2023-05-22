@@ -18,3 +18,10 @@ describe("We can get normal distribution from a data", {
     expect_true(p_value > 0.05)
   })
 })
+
+describe("Test if the data came from normal distribution", {
+  it("Fisrt example", {
+    data <- rnorm(100, 3, 4)
+    expect_true(did_come_from_a_normal_distribution(data))
+  })
+})
