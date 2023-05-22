@@ -20,8 +20,12 @@ describe("We can get normal distribution from a data", {
 })
 
 describe("Test if the data came from normal distribution", {
-  it("Fisrt example", {
+  it("First example", {
     data <- rnorm(100, 3, 4)
     expect_true(did_come_from_a_normal_distribution(data))
+  })
+  it("Second example", {
+    data <- 1:150
+    expect_false(did_come_from_a_normal_distribution(data))
   })
 })
