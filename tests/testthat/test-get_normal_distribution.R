@@ -11,4 +11,10 @@ describe("We can get normal distribution from a data", {
     p_value <- ks.test(data, new_data)$p.value
     expect_true(p_value > 0.05)
   })
+  it("Third example", {
+    data <- rnorm(100, 7, 2)
+    new_data <- get_normal_distribution(data)
+    p_value <- ks.test(data, new_data)$p.value
+    expect_true(p_value > 0.05)
+  })
 })
