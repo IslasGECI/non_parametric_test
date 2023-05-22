@@ -5,6 +5,6 @@ get_normal_distribution <- function(data) {
 }
 
 did_come_from_a_normal_distribution <- function(data) {
-  kst <- shapiro.test(data)
-  return(kst$p.value > 0.05)
+  swt <- shapiro.test(data)
+  return(swt$p.value > 0.05)
 }
