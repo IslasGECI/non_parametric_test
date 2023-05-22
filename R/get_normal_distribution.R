@@ -1,3 +1,5 @@
 get_normal_distribution <- function(data) {
-  return(rnorm(3, 2))
+  m <- mean(data)
+  s <- sd(data)
+  return(rnorm(100, m, s))
 }
