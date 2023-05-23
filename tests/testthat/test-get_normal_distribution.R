@@ -33,3 +33,11 @@ describe("Test if the data came from normal distribution", {
     expect_true(did_come_from_a_normal_distribution(data))
   })
 })
+
+describe("Test if the data came from the same distribution", {
+  it("First example", {
+    data_a <- rnorm(100, 3, 4)
+    data_a <- rnorm(100, 3, 4)
+    expect_true(did_come_from_the_same_distribution(data))
+  })
+})
