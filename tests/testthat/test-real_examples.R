@@ -32,7 +32,6 @@ describe("select_petrel_valley", {
 })
 
 describe("tidy: wide to longer", {
-           skip("Not yet")
   it("Natural", {
     humedity <- read_csv("/workdir/tests/data/Humedad.csv", show_col_types = FALSE) |>
       drop_na()
@@ -42,7 +41,7 @@ describe("tidy: wide to longer", {
     obtained_name <- names(longer)
     expected_name <- c("Date - Time", "dataloger", "humedity")
     expect_equal(obtained_name, expected_name)
-    obtained_dataloger <- unique(loger$dataloger)
+    obtained_dataloger <- unique(longer$dataloger)
     expected_dataloger <- c("TS12_N", "TS13_N")
   })
 })
