@@ -40,4 +40,9 @@ describe("Test if the data came from the same distribution", {
     data_a <- rnorm(100, 3, 4)
     expect_true(did_come_from_the_same_distribution(data))
   })
+  it("Second example", {
+    data_a <- rnorm(100, 7, 3)
+    data_a <- rnorm(100, 3, 4)
+    expect_false(did_come_from_the_same_distribution(data))
+  })
 })
