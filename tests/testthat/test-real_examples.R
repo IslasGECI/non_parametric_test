@@ -38,5 +38,8 @@ describe("tidy: wide to longer", {
     petrel_valley <- humedity |>
       select_petrel_valley()
     longer <- wide_to_longer(petrel_valley)
+    obtained_name <- names(longer)
+    expected_name <- c("humedity", "dataloger")
+    expect_equal(obtained_name, expected_name)
   })
 })
