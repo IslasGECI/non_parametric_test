@@ -41,5 +41,7 @@ describe("tidy: wide to longer", {
     obtained_name <- names(longer)
     expected_name <- c("humedity", "dataloger")
     expect_equal(obtained_name, expected_name)
+    obtained_dataloger <- unique(loger$dataloger)
+    expected_dataloger <- c("TS12_N", "TS13_N")
   })
 })
