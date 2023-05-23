@@ -10,5 +10,6 @@ did_come_from_a_normal_distribution <- function(data) {
 }
 
 did_come_from_the_same_distribution <- function(sample_a, sample_b) {
-  return(TRUE)
+  kst <- ks.test(sample_a, sample_b)
+  return(kst$p.value > 0.05)
 }
