@@ -30,3 +30,13 @@ describe("select_petrel_valley", {
     expect_equal(obtained_names, expected_names)
   })
 })
+
+describe("tidy: wide to longer", {
+  it("Natural", {
+    humedity <- read_csv("/workdir/tests/data/Humedad.csv", show_col_types = FALSE) |>
+      drop_na()
+    petrel_valley <- humedity |>
+      select_petrel_valley()
+    longer <- wide_to_longer(petrel_valley)
+  })
+})
