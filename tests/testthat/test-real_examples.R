@@ -16,5 +16,8 @@ describe("select_petrel_valley", {
       drop_na()
     petrel_valley <- humedity |>
       select_petrel_valley()
+    obtained_names <- names(petrel_valley)
+    expected_names <- c("TS12_N", "TS13_N")
+    expect_equal(obtained_names, expected_names)
   })
 })
