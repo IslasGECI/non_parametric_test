@@ -9,3 +9,12 @@ describe("Are the data of humidity normal", {
     }
   })
 })
+
+describe("select_petrel_valley", {
+  it("Naturals", {
+    humedity <- read_csv("/workdir/tests/data/Humedad_naturales.csv", show_col_types = FALSE) |>
+      drop_na()
+    petrel_valley <- humedity |>
+      select_petrel_valley()
+  })
+})
