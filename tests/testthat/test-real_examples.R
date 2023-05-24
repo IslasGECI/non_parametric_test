@@ -66,7 +66,7 @@ describe("Petrel valley difference", {
     skip("Because fail")
     expect_true(did_come_from_the_same_distribution(naturals_12, naturals_13))
   })
-  it("Second example: samples from TS12 came from TS12 ", {
+  it("Third example: samples from TS12 came from TS12 ", {
     naturals_12 <- longer |>
       filter(str_starts(dataloger, "TS12")) %>%
       .$humedity
