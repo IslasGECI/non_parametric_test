@@ -43,5 +43,6 @@ describe("tidy: wide to longer", {
     expect_equal(obtained_name, expected_name)
     obtained_dataloger <- unique(longer$dataloger)
     expected_dataloger <- c("TS12_N", "TS13_N")
+    expect_equal(obtained_dataloger, expected_dataloger)
   })
 })
