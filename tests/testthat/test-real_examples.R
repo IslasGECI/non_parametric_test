@@ -10,40 +10,6 @@ describe("Are the data of humidity normal", {
   })
 })
 
-describe("select_petrel_valley", {
-  it("Naturals", {
-    humedity <- read_csv("/workdir/tests/data/Humedad_naturales.csv", show_col_types = FALSE) |>
-      drop_na()
-    petrel_valley <- humedity |>
-      select_petrel_valley()
-    obtained_names <- names(petrel_valley)
-    expected_names <- c("Date - Time", "TS12_N", "TS13_N")
-    expect_equal(obtained_names, expected_names)
-  })
-  it("Naturals and artificials", {
-    humedity <- read_csv("/workdir/tests/data/Humedad.csv", show_col_types = FALSE) |>
-      drop_na()
-    petrel_valley <- humedity |>
-      select_petrel_valley()
-    obtained_names <- names(petrel_valley)
-    expected_names <- c("Date - Time", "TS10_A", "TS11_A", "TS12_N", "TS13_N")
-    expect_equal(obtained_names, expected_names)
-  })
-})
-
-describe("tidy: wide to longer", {
-  it("All in petrel valley", {
-    petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
-    longer <- wide_to_longer(petrel_valley)
-    obtained_name <- names(longer)
-    expected_name <- c("Date - Time", "dataloger", "humedity")
-    expect_equal(obtained_name, expected_name)
-    obtained_dataloger <- unique(longer$dataloger)
-    expected_dataloger <- c("TS10_A", "TS11_A", "TS12_N", "TS13_N")
-    expect_equal(obtained_dataloger, expected_dataloger)
-  })
-})
-
 describe("Petrel valley difference", {
   petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
   longer <- wide_to_longer(petrel_valley)
@@ -75,5 +41,39 @@ describe("Petrel valley difference", {
     sample_1 <- naturals_12 |> sample(replace = TRUE)
     sample_2 <- naturals_12 |> sample(replace = TRUE)
     expect_true(did_come_from_the_same_distribution(sample_1, sample_2))
+  })
+})
+
+describe("select_petrel_valley", {
+  it("Naturals", {
+    humedity <- read_csv("/workdir/tests/data/Humedad_naturales.csv", show_col_types = FALSE) |>
+      drop_na()
+    petrel_valley <- humedity |>
+      select_petrel_valley()
+    obtained_names <- names(petrel_valley)
+    expected_names <- c("Date - Time", "TS12_N", "TS13_N")
+    expect_equal(obtained_names, expected_names)
+  })
+  it("Naturals and artificials", {
+    humedity <- read_csv("/workdir/tests/data/Humedad.csv", show_col_types = FALSE) |>
+      drop_na()
+    petrel_valley <- humedity |>
+      select_petrel_valley()
+    obtained_names <- names(petrel_valley)
+    expected_names <- c("Date - Time", "TS10_A", "TS11_A", "TS12_N", "TS13_N")
+    expect_equal(obtained_names, expected_names)
+  })
+})
+
+describe("tidy: wide to longer", {
+  it("All in petrel valley", {
+    petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
+    longer <- wide_to_longer(petrel_valley)
+    obtained_name <- names(longer)
+    expected_name <- c("Date - Time", "dataloger", "humedity")
+    expect_equal(obtained_name, expected_name)
+    obtained_dataloger <- unique(longer$dataloger)
+    expected_dataloger <- c("TS10_A", "TS11_A", "TS12_N", "TS13_N")
+    expect_equal(obtained_dataloger, expected_dataloger)
   })
 })
