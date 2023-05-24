@@ -48,15 +48,23 @@ describe("Petrel valley difference", {
   it("First example: naturals and artificials are different", {
     petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
     longer <- wide_to_longer(petrel_valley)
-    naturals <- longer |> filter(str_ends(dataloger, "N")) %>% .$humedity
-    artificials <- longer |> filter(str_ends(dataloger, "A")) %>% .$humedity
+    naturals <- longer |>
+      filter(str_ends(dataloger, "N")) %>%
+      .$humedity
+    artificials <- longer |>
+      filter(str_ends(dataloger, "A")) %>%
+      .$humedity
     expect_false(did_come_from_the_same_distribution(naturals, artificials))
   })
   it("Second example: naturals are same", {
     petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
     longer <- wide_to_longer(petrel_valley)
-    naturals_12 <- longer |> filter(str_starts(dataloger, "TS12")) %>% .$humedity
-    naturals_13 <- longer |> filter(str_starts(dataloger, "TS13")) %>% .$humedity
+    naturals_12 <- longer |>
+      filter(str_starts(dataloger, "TS12")) %>%
+      .$humedity
+    naturals_13 <- longer |>
+      filter(str_starts(dataloger, "TS13")) %>%
+      .$humedity
     expect_true(did_come_from_the_same_distribution(naturals_12, naturals_13))
   })
 })
