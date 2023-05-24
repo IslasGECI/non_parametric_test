@@ -32,11 +32,8 @@ describe("select_petrel_valley", {
 })
 
 describe("tidy: wide to longer", {
-  it("Natural", {
-    humedity <- read_csv("/workdir/tests/data/Humedad.csv", show_col_types = FALSE) |>
-      drop_na()
-    petrel_valley <- humedity |>
-      select_petrel_valley()
+  it("All in petrel valley", {
+    petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
     longer <- wide_to_longer(petrel_valley)
     obtained_name <- names(longer)
     expected_name <- c("Date - Time", "dataloger", "humedity")
