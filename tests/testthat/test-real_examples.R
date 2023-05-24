@@ -68,4 +68,14 @@ describe("Petrel valley difference", {
     skip("Because fail")
     expect_true(did_come_from_the_same_distribution(naturals_12, naturals_13))
   })
+  it("Second example: samples from TS12 came from TS12 ", {
+    petrel_valley <- read_csv("/workdir/tests/data/Humedad_petrel_valley.csv", show_col_types = FALSE)
+    longer <- wide_to_longer(petrel_valley)
+    naturals_12 <- longer |>
+      filter(str_starts(dataloger, "TS12")) %>%
+      .$humedity
+    sample_1 <- naturals_12 |> sample(replace = TRUE)
+    sample_2 <- naturals_12 |> sample(replace = TRUE)
+    expect_true(did_come_from_the_same_distribution(sample_1, sample_2))
+  })
 })
